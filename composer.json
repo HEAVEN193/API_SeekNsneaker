@@ -1,0 +1,25 @@
+{
+    "name": "matteomcr/api-seek-sneaker",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Matteomcr\\ApiSeekSneaker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matteo Macera",
+            "email": "matteo.mcr@eduge.ch"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "nyholm/psr7": "^1.8",
+        "nyholm/psr7-server": "^1.1",
+        "guzzlehttp/psr7": "^2",
+        "laminas/laminas-diactoros": "^3.3",
+        "slim/php-view": "^3.2",
+        "slim/http": "^1.3"
+    }
+}
