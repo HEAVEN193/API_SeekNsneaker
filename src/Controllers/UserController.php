@@ -44,8 +44,9 @@ class UserController {
             $result = User::create($prenom, $nom, $email, $password, $adresse, $droit);
             return $response->withHeader('Content-Type', 'application/json')
                             ->withJson(['Succès' => 'Le compte a été créé avec succès']);
-        } catch (\Throwable $th) {
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(500)->withJson(['Erreur' => 'Erreur lors de la création du compte']);
+        } catch (\Exception $e) {
+            $response = $response->withHeader('Content-Type', 'application/json')->withStatus(500); 
+            return $response->withJson(['Erreur lors de la création' => $e->getMessage()]);
         }
     }
 
@@ -73,7 +74,8 @@ class UserController {
             $user = User::login($email, $password);
             return $response->withHeader('Content-Type', 'application/json')->withJson(['Succès' => 'Connexion réussie']);
         } catch (\Exception $e) {
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(500)>withJson(['Erreur' => $e->getMessage()]);
+            $response = $response->withHeader('Content-Type', 'application/json')->withStatus(500); 
+            return $response->withJson(['Erreur lors de la tentative de connexion' => $e->getMessage()]);
         }
     }
 
@@ -91,8 +93,9 @@ class UserController {
         try {
             User::logout($id);
             return $response->withHeader('Content-Type', 'application/json')->withJson(['Succès' => 'Vous avez été déconnecté !']);
-        } catch (\Throwable $th) {
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(500)->withJson(['Erreur' => 'Erreur lors de la déconnexion']);
+        } catch (\Exception $e) {
+            $response = $response->withHeader('Content-Type', 'application/json')->withStatus(500); 
+            return $response->withJson(['Erreur lors de la tentative de connexion' => $e->getMessage()]);
         }
 
 
