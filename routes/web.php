@@ -12,8 +12,8 @@ $app->get('/logout/{id:[0-9]+}', [UserController::class, 'logout']);
 $app->get('/annonce', [SneakerController::class, 'getSneakers']);
 $app->get('/annonce/{id:[0-9]+}', [SneakerController::class, 'getSneakerById']);
 $app->post('/create-annonce', [SneakerController::class, 'createSneaker']);
-$app->get('/delete-annonce/{id:[0-9]+}', [SneakerController::class, 'deleteSneaker']);
-$app->post('/update-annonce/{id:[0-9]+}', [SneakerController::class, 'updateSneaker']);
+$app->delete('/delete-annonce/{id:[0-9]+}', [SneakerController::class, 'deleteSneaker']);
+$app->update('/update-annonce/{id:[0-9]+}', [SneakerController::class, 'updateSneaker']);
 
 
 

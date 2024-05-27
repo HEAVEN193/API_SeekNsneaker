@@ -3,16 +3,15 @@
 namespace Matteomcr\ApiSeekSneaker\Models;
 require_once "constantes.php";
 
-
 use PDO;
 
+/**
+ * Classe Database
+ * Fournit une connexion à la base de données en utilisant le pattern Singleton pour éviter les multiples instances de connexion.
+ */
 class Database
 {
-    /**
-     * Open a new database connection if needed, returns the current connection
-     *
-     * @return PDO
-     */
+    
     public static function connection(): PDO
     {
         static $pdo = null;
